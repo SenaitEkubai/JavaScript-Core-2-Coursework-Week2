@@ -1,6 +1,6 @@
 function listOfNames(arrayOfPeople) {
   let content = document.querySelector("#content");
-  let unOrderListTag = document.createElement("ul");
+  let unOrderListTag = document.createElement("ol");
   unOrderListTag.id = "ul-id"; // gives an id name
   document.getElementById("content").appendChild(unOrderListTag);
   for (var i = 0; i < arrayOfPeople.length; i++) {
@@ -8,17 +8,21 @@ function listOfNames(arrayOfPeople) {
     const listText = document.createTextNode(
       `${arrayOfPeople[i].name}-${arrayOfPeople[i].job}`
     );
+    list.style.fontSize = "30px";
     list.appendChild(listText);
     document
       .getElementById("content")
-      .getElementsByTagName("ul")[0]
+      .getElementsByTagName("ol")[0]
       .appendChild(list);
     let h1Tag = document.createElement("h1");
-    h1Tag.style.alignContent = "center";
+    h1Tag.style.background = "grey"; //change background color
+    h1Tag.style.textAlign = "center"; // align h1 element center
+
     let h1Text = document.createTextNode(arrayOfPeople[i].name);
     h1Tag.appendChild(h1Text);
     document.getElementById("content").appendChild(h1Tag);
     let h2Tag = document.createElement("h2");
+    h2Tag.style.textAlign = "center";
     let h2Text = document.createTextNode(`${arrayOfPeople[i].job}`);
     h2Tag.appendChild(h2Text);
     document.getElementById("content").appendChild(h2Tag);

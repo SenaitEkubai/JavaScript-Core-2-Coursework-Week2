@@ -5,11 +5,20 @@ function readingList(books) {
   pageTag.appendChild(pageTitle);
   document.getElementById("content").appendChild(pageTag);
   const unOrderedList = document.createElement("ul");
+  unOrderedList.id = "ulId";
   document.getElementById("content").appendChild(unOrderedList);
   for (var i = 0; i < books.length; i++) {
     let listTag = document.createElement("li"); //list tag
+    //all styles for ul and list tag
     listTag.style.height = "50%"; //sets the height
-    listTag.style.width = "50%"; //sets the width
+    listTag.style.width = "30%"; //sets the width
+    document.getElementById("ulId").style.marginTop = "5%";
+    document.getElementById("ulId").style.width = "75%";
+    document.getElementById("ulId").style.listStyle = "none";
+    document.getElementById("ulId").style.display = "flex";
+    document.getElementById("ulId").style.height = "100%";
+    document.getElementById("ulId").style.justifyContent = "space-around";
+
     const pTag = document.createElement("p"); //p tag inside list tag
     const pText = document.createTextNode(
       `${books[i].title} ${books[i].author}`
@@ -21,7 +30,7 @@ function readingList(books) {
     // adding image tag
     const imgTag = document.createElement("img");
     // images width and height
-    imgTag.style.height = "75%";
+    imgTag.style.height = "65%";
     imgTag.style.width = "65%";
     // getting the source of the images using if statement
     if (books[i].title === "The Design of Everyday Things") {

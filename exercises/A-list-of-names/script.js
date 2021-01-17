@@ -1,12 +1,27 @@
 function listOfNames(arrayOfPeople) {
   let content = document.querySelector("#content");
+  let unOrderListTag = document.createElement("ul");
+  unOrderListTag.id = "ul-id"; // gives an id name
+  document.getElementById("content").appendChild(unOrderListTag);
   for (var i = 0; i < arrayOfPeople.length; i++) {
     const list = document.createElement("li");
     const listText = document.createTextNode(
       `${arrayOfPeople[i].name}-${arrayOfPeople[i].job}`
     );
     list.appendChild(listText);
-    document.body.appendChild(list);
+    document
+      .getElementById("content")
+      .getElementsByTagName("ul")[0]
+      .appendChild(list);
+    let h1Tag = document.createElement("h1");
+    h1Tag.style.alignContent = "center";
+    let h1Text = document.createTextNode(arrayOfPeople[i].name);
+    h1Tag.appendChild(h1Text);
+    document.getElementById("content").appendChild(h1Tag);
+    let h2Tag = document.createElement("h2");
+    let h2Text = document.createTextNode(`${arrayOfPeople[i].job}`);
+    h2Tag.appendChild(h2Text);
+    document.getElementById("content").appendChild(h2Tag);
   }
 }
 
@@ -22,3 +37,10 @@ listOfNames(people);
 const elemText = document.createTextNode("List of names and their jobs");
 elem.appendChild(elemText);
 document.body.appendChild(elem); */
+
+/* let name = document.createElement("h1");
+let job = document.createTextNode(`${people[0].name}`);
+name.appendChild(job);
+document.getElementById("content").appendChild(name);
+let x = document.createTextNode("h2", "this is my text");
+document.body.appendChild(x); */

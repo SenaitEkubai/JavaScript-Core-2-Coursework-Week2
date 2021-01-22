@@ -55,10 +55,24 @@ function addNewTodo(event) {
     todos.push({ task: `${inputField.value}`, completed: false }); // pushes the new input field value into the todos array
     let added = todos.splice(todos.length - 1); // removes the pushed element and changes the todos array. at this point the array only contains the input field value
     populateTodoList(added); // calls the function
+    inputField.value = "";
   }
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
+let removeButton = document.getElementById("remove-button");
 function deleteAllCompletedTodos() {
   // Write your code here...
+  let allTasks = document.getElementsByClassName("list-group-item");
+  for (var i = 0; i < allTasks.length; i++) {
+    if (allTasks[i].style.textDecoration === "line-through") {
+      allTasks[i].remove();
+      i--;
+    }
+  }
+  if (allTasks.length == 0) {
+    removeButton.remove(); // removes button after deleted all  tasks
+  }
 }
+
+removeButton.addEventListener("click", deleteAllCompletedTodos);

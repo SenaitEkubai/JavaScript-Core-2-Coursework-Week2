@@ -3,6 +3,7 @@ function highlightWords(paragraph, colours) {
   let pElement = document.createElement("p"); //crete p tag
   let selectElement = document.createElement("select"); // create select tag
   //let optionElement = document.createElement("option");
+
   for (let i = 0; i < colours.length; i++) {
     let optionElement = document.createElement("option"); //create option element
     optionElement.innerHTML = `${colours[i]}`; // sets option text content
@@ -14,6 +15,10 @@ function highlightWords(paragraph, colours) {
     spanElement.innerHTML = `${arrayOfWords[j]} `; // crated span element for each word
     spanElement.addEventListener("click", function (event) {
       event.target.style.backgroundColor = selectElement.value;
+      // if selected color is none, remove existing highlights
+      if (selectElement.value == "none") {
+        event.target.style.backgroundColor = "";
+      }
     });
     pElement.appendChild(spanElement); /// append  to the p tag
   }

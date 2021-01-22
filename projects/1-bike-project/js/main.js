@@ -1,5 +1,6 @@
 // part 1
 //start of blue button functionality
+
 const blueButton = document.getElementById("blueBtn");
 function clickFunctionForBlue() {
   let jumbotronSection = document.querySelector(".jumbotron");
@@ -10,6 +11,7 @@ function clickFunctionForBlue() {
   volunteer.style.background = "black";
   volunteer.style.color = "white";
 }
+
 blueButton.addEventListener("click", clickFunctionForBlue);
 //end of function
 // start of orange function

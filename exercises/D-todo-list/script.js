@@ -9,10 +9,6 @@ function todoList(todos) {
     let listText = document.createTextNode(`${todos[i].todo}`); // text inside a list
     anchorTag.appendChild(listText);
     listTag.appendChild(anchorTag);
-    /* document
-      .getElementById("content")
-      .getElementsByTagName("ul")[0] */
-
     unOrderedListTag.appendChild(listTag);
     // click function
     var clickFunction = function strikeThrough(event) {

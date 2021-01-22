@@ -70,8 +70,9 @@ function deleteAllCompletedTodos() {
       i--;
     }
   }
+  //delete all button disappears form screen if no elements are left in the  list
   if (allTasks.length == 0) {
-    removeButton.remove(); // removes button after deleted all  tasks
+    removeButton.remove();
   }
 }
 
